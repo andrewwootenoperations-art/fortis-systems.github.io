@@ -79,20 +79,22 @@
   .callout-accent { display: block; width: 32px; height: 3px; background: var(--accent); margin-bottom: 28px; }
 
   /* PORTFOLIO */
-  .portfolio { background: var(--white); padding: 96px 48px; }
-  .portfolio-inner { max-width: 1100px; margin: 0 auto; }
-  .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
-  .portfolio-card { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
-  .portfolio-thumb { height: 160px; background: var(--bg); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); }
-  .doc-icon { display: flex; flex-direction: column; gap: 5px; padding: 16px 14px; background: white; border: 1px solid var(--border); border-radius: 3px; width: 64px; }
-  .doc-line { height: 3px; border-radius: 2px; background: var(--border); }
-  .doc-line.h { background: var(--accent); width: 75%; }
-  .doc-line.s { width: 60%; }
-  .portfolio-body { padding: 24px 28px; }
-  .portfolio-body h4 { font-size: 16px; font-weight: 600; color: var(--black); margin-bottom: 6px; }
-  .portfolio-body p { font-size: 13px; color: var(--gray); line-height: 1.6; font-weight: 300; }
-  .portfolio-tags { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
-  .tag { font-size: 11px; padding: 4px 10px; border-radius: 3px; border: 1px solid var(--border); color: var(--gray); }
+ .portfolio { background: var(--white); padding: 96px 48px; }
+.portfolio-inner { max-width: 1100px; margin: 0 auto; }
+.portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+.portfolio-card { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; transition: border-color 0.2s; }
+.portfolio-card:hover { border-color: var(--accent); }
+.portfolio-thumb { height: 160px; background: var(--bg); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); }
+.doc-icon { display: flex; flex-direction: column; gap: 5px; padding: 16px 14px; background: white; border: 1px solid var(--border); border-radius: 3px; width: 64px; }
+.doc-line { height: 3px; border-radius: 2px; background: var(--border); }
+.doc-line.h { background: var(--accent); width: 75%; }
+.doc-line.s { width: 60%; }
+.portfolio-body { padding: 24px 28px; }
+.portfolio-body h4 { font-size: 16px; font-weight: 600; color: var(--black); margin-bottom: 6px; }
+.portfolio-body p { font-size: 13px; color: var(--gray); line-height: 1.6; font-weight: 300; }
+.portfolio-tags { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+.tag { font-size: 11px; padding: 4px 10px; border-radius: 3px; border: 1px solid var(--border); color: var(--gray); }
+.download-label { display: inline-block; margin-top: 14px; font-size: 12px; color: var(--accent); font-weight: 500; }
 
   /* CONTACT */
   .contact { padding: 96px 48px; max-width: 1100px; margin: 0 auto; }
@@ -227,48 +229,57 @@
     <div class="section-eyebrow">Portfolio</div>
     <div class="section-title">Real deliverables.<br>Ready to use.</div>
     <div class="portfolio-grid">
+
       <div class="portfolio-card">
-        <div class="portfolio-thumb">
-          <div class="doc-icon">
-            <div class="doc-line h"></div>
-            <div class="doc-line"></div>
-            <div class="doc-line s"></div>
-            <div class="doc-line"></div>
-            <div class="doc-line s"></div>
-            <div class="doc-line"></div>
+        <a href="fortis_systems_orientation.docx" style="text-decoration: none; color: inherit;">
+          <div class="portfolio-thumb">
+            <div class="doc-icon">
+              <div class="doc-line h"></div>
+              <div class="doc-line"></div>
+              <div class="doc-line s"></div>
+              <div class="doc-line"></div>
+              <div class="doc-line s"></div>
+              <div class="doc-line"></div>
+            </div>
           </div>
-        </div>
-        <div class="portfolio-body">
-          <h4>Operational Expansion Plan</h4>
-          <p>5-section planning document covering org structure, FTE staffing tables, budget modeling, and functional statement revisions. Formatted for executive review.</p>
-          <div class="portfolio-tags">
-            <span class="tag">Planning</span>
-            <span class="tag">Budget modeling</span>
-            <span class="tag">Org structure</span>
+          <div class="portfolio-body">
+            <h4>Employee Role Orientation System</h4>
+            <p>3-role onboarding framework with facilitation guide, responsibility breakdowns, and goal-setting tables for each position.</p>
+            <div class="portfolio-tags">
+              <span class="tag">Onboarding</span>
+              <span class="tag">Role clarity</span>
+              <span class="tag">Team systems</span>
+            </div>
+            <div class="download-label">Download sample →</div>
           </div>
-        </div>
+        </a>
       </div>
+
       <div class="portfolio-card">
-        <div class="portfolio-thumb">
-          <div class="doc-icon">
-            <div class="doc-line h"></div>
-            <div class="doc-line"></div>
-            <div class="doc-line s"></div>
-            <div class="doc-line"></div>
-            <div class="doc-line s"></div>
-            <div class="doc-line"></div>
+        <a href="fortis_systems_portfolio.docx" style="text-decoration: none; color: inherit;">
+          <div class="portfolio-thumb">
+            <div class="doc-icon">
+              <div class="doc-line h"></div>
+              <div class="doc-line"></div>
+              <div class="doc-line s"></div>
+              <div class="doc-line"></div>
+              <div class="doc-line s"></div>
+              <div class="doc-line"></div>
+            </div>
           </div>
-        </div>
-        <div class="portfolio-body">
-          <h4>Employee Role Orientation System</h4>
-          <p>3-role onboarding framework with facilitation guide, responsibility breakdowns, manager relationship protocols, and goal-setting tables for each position.</p>
-          <div class="portfolio-tags">
-            <span class="tag">Onboarding</span>
-            <span class="tag">Role clarity</span>
-            <span class="tag">Team systems</span>
+          <div class="portfolio-body">
+            <h4>Operational Expansion Plan</h4>
+            <p>5-section planning document covering org structure, FTE staffing tables, budget modeling, and functional statement revisions.</p>
+            <div class="portfolio-tags">
+              <span class="tag">Planning</span>
+              <span class="tag">Budget modeling</span>
+              <span class="tag">Org structure</span>
+            </div>
+            <div class="download-label">Download sample →</div>
           </div>
-        </div>
+        </a>
       </div>
+
     </div>
   </div>
 </section>
