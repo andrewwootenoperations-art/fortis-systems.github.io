@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortis Systems — Business Operations</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #111111;
+    --mark: #1D1D1D;
+    --accent: #D97706;
+    --accent-light: #FEF3C7;
+    --gray: #888888;
+    --border: #E5E5E5;
+    --bg: #F8F7F4;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--black); line-height: 1.6; }
+
+  /* NAV */
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .mark { width: 40px; height: 40px; border-radius: 4px; background: var(--mark); display: flex; align-items: center; justify-content: center; position: relative; flex-shrink: 0; }
+  .mark-letter { font-size: 21px; font-weight: 700; color: #fff; font-family: var(--sans); line-height: 1; }
+  .mark-dot { position: absolute; bottom: 6px; right: 6px; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  .brand-text { display: flex; flex-direction: column; gap: 1px; }
+  .brand-name { font-size: 17px; font-weight: 600; color: var(--black); font-family: var(--sans); line-height: 1; letter-spacing: 0.2px; }
+  .brand-sub { font-size: 9px; color: var(--gray); letter-spacing: 3px; text-transform: uppercase; font-family: var(--sans); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { font-size: 14px; color: var(--gray); text-decoration: none; font-weight: 400; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta { padding: 10px 22px; background: var(--mark); color: white; border: none; border-radius: 4px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--sans); text-decoration: none; letter-spacing: 0.3px; transition: background 0.2s; }
+  .nav-cta:hover { background: #333; }
+
+  /* HERO */
+  .hero { padding: 100px 48px 80px; max-width: 1100px; margin: 0 auto; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 24px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--accent); }
+  .hero h1 { font-family: var(--serif); font-size: 72px; line-height: 1.05; color: var(--black); margin-bottom: 28px; font-weight: 400; max-width: 700px; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-body { font-size: 18px; color: var(--gray); line-height: 1.7; max-width: 520px; margin-bottom: 44px; font-weight: 300; }
+  .hero-actions { display: flex; gap: 14px; align-items: center; }
+  .btn-primary { padding: 14px 28px; background: var(--mark); color: white; border: none; border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--sans); text-decoration: none; letter-spacing: 0.3px; }
+  .btn-outline { padding: 14px 28px; background: transparent; color: var(--black); border: 1px solid var(--border); border-radius: 4px; font-size: 14px; cursor: pointer; font-family: var(--sans); text-decoration: none; font-weight: 400; }
+  .hero-stats { display: flex; gap: 48px; margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--border); }
+  .stat-num { font-family: var(--serif); font-size: 40px; color: var(--black); line-height: 1; }
+  .stat-label { font-size: 13px; color: var(--gray); margin-top: 4px; }
+
+  /* SERVICES */
+  .services { background: var(--white); padding: 96px 48px; }
+  .services-inner { max-width: 1100px; margin: 0 auto; }
+  .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
+  .section-title { font-family: var(--serif); font-size: 42px; color: var(--black); font-weight: 400; line-height: 1.1; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+  .service-card { background: var(--white); padding: 40px 36px; }
+  .service-num { font-size: 11px; letter-spacing: 2px; color: var(--accent); font-weight: 500; margin-bottom: 20px; }
+  .service-title { font-family: var(--serif); font-size: 22px; color: var(--black); margin-bottom: 14px; font-weight: 400; line-height: 1.2; }
+  .service-body { font-size: 14px; color: var(--gray); line-height: 1.7; font-weight: 300; }
+  .service-tag { display: inline-block; margin-top: 20px; font-size: 11px; color: var(--accent); background: var(--accent-light); padding: 4px 10px; border-radius: 3px; font-weight: 500; letter-spacing: 0.5px; }
+
+  /* PROCESS */
+  .process { padding: 96px 48px; max-width: 1100px; margin: 0 auto; }
+  .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px; }
+  .process-steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+  .step:first-child { padding-top: 0; }
+  .step-num { font-family: var(--serif); font-size: 32px; color: var(--border); line-height: 1; flex-shrink: 0; width: 40px; }
+  .step-content h4 { font-size: 16px; font-weight: 600; color: var(--black); margin-bottom: 6px; letter-spacing: 0.2px; }
+  .step-content p { font-size: 14px; color: var(--gray); line-height: 1.7; font-weight: 300; }
+  .process-callout { background: var(--mark); border-radius: 6px; padding: 48px 40px; color: white; }
+  .callout-quote { font-family: var(--serif); font-size: 26px; line-height: 1.4; color: white; margin-bottom: 24px; font-style: italic; font-weight: 400; }
+  .callout-detail { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; }
+  .callout-accent { display: block; width: 32px; height: 3px; background: var(--accent); margin-bottom: 28px; }
+
+  /* PORTFOLIO */
+  .portfolio { background: var(--white); padding: 96px 48px; }
+  .portfolio-inner { max-width: 1100px; margin: 0 auto; }
+  .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .portfolio-card { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .portfolio-thumb { height: 160px; background: var(--bg); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); }
+  .doc-icon { display: flex; flex-direction: column; gap: 5px; padding: 16px 14px; background: white; border: 1px solid var(--border); border-radius: 3px; width: 64px; }
+  .doc-line { height: 3px; border-radius: 2px; background: var(--border); }
+  .doc-line.h { background: var(--accent); width: 75%; }
+  .doc-line.s { width: 60%; }
+  .portfolio-body { padding: 24px 28px; }
+  .portfolio-body h4 { font-size: 16px; font-weight: 600; color: var(--black); margin-bottom: 6px; }
+  .portfolio-body p { font-size: 13px; color: var(--gray); line-height: 1.6; font-weight: 300; }
+  .portfolio-tags { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  .tag { font-size: 11px; padding: 4px 10px; border-radius: 3px; border: 1px solid var(--border); color: var(--gray); }
+
+  /* CONTACT */
+  .contact { padding: 96px 48px; max-width: 1100px; margin: 0 auto; }
+  .contact-box { background: var(--mark); border-radius: 6px; padding: 72px 64px; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+  .contact-box h2 { font-family: var(--serif); font-size: 42px; color: white; font-weight: 400; line-height: 1.1; margin-bottom: 12px; }
+  .contact-box p { font-size: 16px; color: rgba(255,255,255,0.5); font-weight: 300; }
+  .contact-right { display: flex; flex-direction: column; gap: 14px; align-items: flex-end; }
+  .contact-email { font-size: 15px; color: var(--accent); font-weight: 500; }
+  .btn-accent { padding: 14px 28px; background: var(--accent); color: white; border: none; border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--sans); text-decoration: none; white-space: nowrap; }
+
+  /* FOOTER */
+  footer { padding: 32px 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--white); }
+  .footer-logo { display: flex; align-items: center; gap: 10px; }
+  .footer-mark { width: 24px; height: 24px; border-radius: 3px; background: var(--mark); display: flex; align-items: center; justify-content: center; position: relative; }
+  .footer-letter { font-size: 12px; font-weight: 700; color: white; font-family: var(--sans); line-height: 1; }
+  .footer-dot { position: absolute; bottom: 3px; right: 3px; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+  .footer-name { font-size: 13px; font-weight: 600; color: var(--black); font-family: var(--sans); }
+  .footer-right { font-size: 12px; color: var(--gray); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="mark"><span class="mark-letter">F</span><span class="mark-dot"></span></div>
+    <div class="brand-text">
+      <span class="brand-name">Fortis Systems</span>
+      <span class="brand-sub">Business Operations</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="mailto:andrewwootenoperations@gmail.com" class="nav-cta">Get started</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Business Operations Consulting</div>
+  <h1>Systems built to <em>last.</em></h1>
+  <p class="hero-body">Fortis Systems helps small businesses build the operational infrastructure they need to run consistently — SOPs, onboarding systems, and process documentation that actually get used.</p>
+  <div class="hero-actions">
+    <a href="mailto:andrewwootenoperations@gmail.com" class="btn-primary">Work with us</a>
+    <a href="#portfolio" class="btn-outline">View portfolio</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">48h</div>
+      <div class="stat-label">Average turnaround</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Async — no calls required</div>
+    </div>
+    <div>
+      <div class="stat-num">1</div>
+      <div class="stat-label">Round of revisions included</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">What we deliver</div>
+        <div class="section-title">Three core services.<br>One clear outcome.</div>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-title">Standard Operating Procedures</div>
+        <div class="service-body">Step-by-step process documentation your team can follow without asking questions. Written for your operation, not copied from a template.</div>
+        <span class="service-tag">Most requested</span>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-title">Role Onboarding Systems</div>
+        <div class="service-body">New hire orientation frameworks for each position on your team — so every employee starts strong and knows exactly what success looks like in their role.</div>
+        <span class="service-tag">High value</span>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-title">Operational Planning Documents</div>
+        <div class="service-body">Expansion plans, budget models, and org structure documents built for real business decisions — structured, clear, and ready to share with stakeholders.</div>
+        <span class="service-tag">Strategic</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="section-eyebrow">How it works</div>
+  <div class="section-title">Simple process.<br>No surprises.</div>
+  <div class="process-grid">
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Tell us what you need</h4>
+          <p>Send an email describing your business and what you're trying to document or build. No call required — everything happens over email.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Receive a sample or outline</h4>
+          <p>Within 24–48 hours you'll get a draft structure or sample section — so you can see exactly what you'll receive before committing to the project.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Get your finished document</h4>
+          <p>Fast turnaround, clean professional formatting, ready to hand directly to your team. One round of revisions is included on every project.</p>
+        </div>
+      </div>
+    </div>
+    <div class="process-callout">
+      <span class="callout-accent"></span>
+      <div class="callout-quote">"The foundation everything runs on shouldn't have to be rebuilt every time someone new walks in the door."</div>
+      <div class="callout-detail">Fortis Systems was built on the belief that small businesses deserve the same operational clarity as large ones — without the enterprise price tag or the consulting firm overhead.</div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-inner">
+    <div class="section-eyebrow">Portfolio</div>
+    <div class="section-title">Real deliverables.<br>Ready to use.</div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-thumb">
+          <div class="doc-icon">
+            <div class="doc-line h"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line s"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line s"></div>
+            <div class="doc-line"></div>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <h4>Operational Expansion Plan</h4>
+          <p>5-section planning document covering org structure, FTE staffing tables, budget modeling, and functional statement revisions. Formatted for executive review.</p>
+          <div class="portfolio-tags">
+            <span class="tag">Planning</span>
+            <span class="tag">Budget modeling</span>
+            <span class="tag">Org structure</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb">
+          <div class="doc-icon">
+            <div class="doc-line h"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line s"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line s"></div>
+            <div class="doc-line"></div>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <h4>Employee Role Orientation System</h4>
+          <p>3-role onboarding framework with facilitation guide, responsibility breakdowns, manager relationship protocols, and goal-setting tables for each position.</p>
+          <div class="portfolio-tags">
+            <span class="tag">Onboarding</span>
+            <span class="tag">Role clarity</span>
+            <span class="tag">Team systems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-box">
+    <div>
+      <h2>Ready to build something solid?</h2>
+      <p>Send a message and we'll respond within 24 hours.</p>
+    </div>
+    <div class="contact-right">
+      <div class="contact-email">andrewwootenoperations@gmail.com</div>
+      <a href="mailto:andrewwootenoperations@gmail.com" class="btn-accent">Send a message →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">
+    <div class="footer-mark"><span class="footer-letter">F</span><span class="footer-dot"></span></div>
+    <span class="footer-name">Fortis Systems</span>
+  </div>
+  <div class="footer-right">© 2026 Fortis Systems · andrewwootenoperations@gmail.com</div>
+</footer>
+
+</body>
+</html>
